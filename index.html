@@ -1,0 +1,107 @@
+<!-- The user arrives at the landing page and is presented with a call-to-action to "Start Quiz." Also note the navigation
+option to "View Highscores" and the "Time" value set at 0.
+
+* Clicking the "Start Quiz" button presents the user with a series of questions. The timer is initialized with a value
+and immediately begins countdown.
+
+* Score is calculated by time remaining. Answering quickly and correctly results in a higher score. Answering
+incorrectly results in a time penalty (for example, 15 seconds are subtracted from time remaining).
+
+* When time runs out and/or all questions are answered, the user is presented with their final score and asked to enter
+their initials. Their final score and initials are then stored in `localStorage`.
+
+* Your application should also be responsive, ensuring that it adapts to multiple screen sizes.
+
+* Refer to the animated GIF below for a demonstration of the application functionality. -->
+
+
+
+
+<!-- My Plan HTML
+
+# Create:
+- Start block
+- Question & answers block
+- Answer is correct or wrong message
+- Counter block
+- Score block
+
+# Create another HTML page for the highest scores
+
+// Plan Java
+- Get the element by id from HTML
+- Create the objects inside an array for the questions, answers, and the correct answer
+
+# JS
+- Create start button and page
+- Create a count function
+- Create a function to show the questions and answers. A function to render the Q&A: Pull the object properties of 
+the array (Quesitons and Answers) in a automatic way.
+- Create a function to check if the answer is correct and add a score to the user + go to the next question. -->
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Quiz in JavaScript</title>
+    <link rel="stylesheet" href="style.css">
+    </style>
+
+</head>
+
+<body>
+ 
+
+    <div class="row">
+        <div class="col-md-12">
+            <div id="counter" class="counterClass" style="display:none">Time to Answer</div>
+        </div>
+    </div>
+ 
+    <div class="row">
+        <div class="col-md-12">
+            <div id="qa" style="display:none">
+                <div id="question">Question</div>
+                <br>
+                <ul>
+                    <button id="answerA" onclick='answerResult("answerD")'></button>
+                    <br>
+                    <button id="answerB" onclick='answerResult("answerA")'></button>
+                    <br>
+                    <button id="answerC" onclick='answerResult("answerC")'></button>
+                    <br>
+                    <button id="answerD" onclick='answerResult("answerB")'></button>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="messageAnswer"></div>
+        </div>  
+    </div>
+    <div class="row">
+        <div class="col-md-4">
+            <h2 id="start" onclick="startQuiz()">Click Here to Start the Quiz</h2>
+        </div> 
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="scoreText" class="scoreStyle" style="display:none">Your Score</div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div id="scoreBlock" class="scoreStyle" style="display:none">Your Score</div>
+        </div>
+    </div>
+
+
+    <script src="./script.js"></script>
+ 
+</body>
+
+</html>

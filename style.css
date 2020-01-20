@@ -1,0 +1,53 @@
+
+body {
+    background-color: darkblue;
+    color: white;
+}
+
+/* Start page */
+
+#start{
+    justify-content: center;
+    display:flex;
+    
+}
+
+h2{
+    font-size: 40px;
+    border-color: white;
+    border-style: solid;
+    width: 100%;
+    display:flex;
+    justify-content: center;
+   
+ }
+
+ /* Q&A page */
+
+ #qa{
+    display: grid;
+    justify-content: center;
+}
+
+h3{
+    font-size: 30px;
+}
+
+button{
+    margin:10px;
+    font-size: 20px;
+}
+
+.counterClass{
+    font-size: 40px;
+    color: white;
+    }
+
+    
+.scoreStyle{
+    font-size: 40px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    }
+
