@@ -53,55 +53,54 @@ the array (Quesitons and Answers) in a automatic way.
 </head>
 
 <body>
- 
+
 
     <div class="row">
         <div class="col-md-12">
             <div id="counter" class="counterClass" style="display:none">Time to Answer</div>
         </div>
     </div>
- 
+
+    <div>
     <div class="row">
         <div class="col-md-12">
             <div id="qa" style="display:none">
-                <div id="question">Question</div>
+                <div id="question" class="justifyCenter">Question</div>
                 <br>
-                <ul>
-                    <button id="answerA" onclick='answerResult("answerD")'></button>
+                <ul class="justifyCenter">
+                    <button id="answerA" onclick='answerResult("A")'></button>
                     <br>
-                    <button id="answerB" onclick='answerResult("answerA")'></button>
+                    <button id="answerB" onclick='answerResult("B")'></button>
                     <br>
-                    <button id="answerC" onclick='answerResult("answerC")'></button>
+                    <button id="answerC" onclick='answerResult("C")'></button>
                     <br>
-                    <button id="answerD" onclick='answerResult("answerB")'></button>
+                    <button id="answerD" onclick='answerResult("D")'></button>
                 </ul>
             </div>
         </div>
     </div>
+  </div>
+
     <div class="row">
         <div class="col-md-12">
             <div id="messageAnswer"></div>
-        </div>  
+        </div>
     </div>
     <div class="row">
         <div class="col-md-4">
             <h2 id="start" onclick="startQuiz()">Click Here to Start the Quiz</h2>
-        </div> 
-    </div>
-    <div class="row">
-        <div class="col-md-12">
-            <div id="scoreText" class="scoreStyle" style="display:none">Your Score</div>
         </div>
     </div>
-    <div class="row">
+    <div class="row justifyCenter">
         <div class="col-md-12">
-            <div id="scoreBlock" class="scoreStyle" style="display:none">Your Score</div>
+            <div id="scoreText" class="scoreStyle" style="display:none">Your Score</div>
+            <div id="scoreBlock" class="scoreStyle" style="display:none">0</div>
         </div>
     </div>
 
 
     <script src="./script.js"></script>
- 
+
 </body>
 
 </html>

@@ -12,6 +12,7 @@ var answerC = document.getElementById("answerC");
 var answerD = document.getElementById("answerD");
 var scoreBlock = document.getElementById("scoreBlock");
 var scoreText = document.getElementById("scoreText");
+var lastScores = document.getElementById("lastScores");
 // console.log(qa)
 
 // Array of objects with the elements question, answers and correct answer
@@ -52,7 +53,7 @@ var totalQuestion = [
         choiceD: "Liberal",
         correct: "B"
     }
-]
+];
 
 // Variables to make the page load
 
@@ -60,12 +61,12 @@ var indexQuestion = 0;
 var lastQuestion = totalQuestion.length - 1;
 
 function loadQuestion() {
-    question.innerHTML = "<h3>" + totalQuestion[indexQuestion].question + "</h3>";
+    vquestion.innerHTML = "<h3>" + totalQuestion[indexQuestion].question + "</h3>";
     answerA.innerHTML = totalQuestion[indexQuestion].choiceA;
     answerB.innerHTML = totalQuestion[indexQuestion].choiceB;
     answerC.innerHTML = totalQuestion[indexQuestion].choiceC;
     answerD.innerHTML = totalQuestion[indexQuestion].choiceD;
-
+   
 }
 
 //Variables to make the counter load 
@@ -107,9 +108,11 @@ function startQuiz() {
     start.style.display = "none";
     qa.style.display = "block";
     counter.setAttribute("style", "display:block");
-    loadQuestion();
+    loadQuestion(0);
     quizCounter()
     seconds = setInterval(quizCounter, 1000)
+    // scoreText.setAttribute("style","display:block")
+    // scoreBlock.setAttribute("style", "diplay:block");
 
 }
 
@@ -119,16 +122,16 @@ function startQuiz() {
 
 function answerResult(userAnswer) {
 
-    if ( userAnswer == totalQuestion[indexQuestion].correct) {
-        score++
-        // scoreBlock.textNode = score;
-        // messageAnswer.textNode = "Your answer is correct!"
+    if (totalQuestion[indexQuestion].correct === userAnswer) {
+        score++;
+        scoreBlock.textNode = score;
+        messageAnswer.textContent = "Your previous answer was correct!";
        
 
     }
     else {
         
-        messageAnswer.textNode = "Your answer is wrong!"
+        messageAnswer.textContent = "Your previous answer was wrong!";
     }
     
     count = "30";
@@ -136,17 +139,16 @@ function answerResult(userAnswer) {
 
     if (indexQuestion < lastQuestion){
     indexQuestion++;
-    loadQuestion()
+    loadQuestion();
     }
 
     else{
-    clearInterval(seconds)
-    totalScore()
+    clearInterval(seconds);
+    totalScore();
     
     }
 
 }
-
 
 
 function totalScore(){
@@ -157,5 +159,11 @@ function totalScore(){
     scoreBlock.setAttribute("style", "diplay:block");
     scoreBlock.setAttribute("style", "fontSize:40px;");
     scoreBlock.innerHTML = score;
+    recordScore();
+}
+
+
+
+
 }
 
