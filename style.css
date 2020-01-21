@@ -31,7 +31,9 @@ h2{
 }
 
 h3{
+    display: flex;
     font-size: 30px;
+    text-decoration: underline;
 }
 
 button{
@@ -52,7 +54,27 @@ button{
     justify-content: center;
     }
 
-    .justifyCenter{
-        display: flex;
-        justify-content: center;
-        }
+.justifyCenter{
+    display: flex;
+    justify-content: center;
+    }
+
+    
+.highScoreStyle{
+    font-size: 40px;
+    color: white;
+    display: flex;
+    justify-content: center;
+    font-style: italic;
+    border: 5px;
+    border-color: cornsilk;
+    
+    }
+    
+ol{
+    
+    display: flex;
+    display:grid;
+    font-size: 25px;
+       
+}

@@ -12,7 +12,10 @@ var answerC = document.getElementById("answerC");
 var answerD = document.getElementById("answerD");
 var scoreBlock = document.getElementById("scoreBlock");
 var scoreText = document.getElementById("scoreText");
-var lastScores = document.getElementById("lastScores");
+var scoreList = document.getElementById("scoreList");
+var ul = document.getElementById("ul");
+
+
 // console.log(qa)
 
 // Array of objects with the elements question, answers and correct answer
@@ -66,7 +69,7 @@ function loadQuestion() {
     answerB.innerHTML = totalQuestion[indexQuestion].choiceB;
     answerC.innerHTML = totalQuestion[indexQuestion].choiceC;
     answerD.innerHTML = totalQuestion[indexQuestion].choiceD;
-   
+
 }
 
 //Variables to make the counter load 
@@ -93,7 +96,7 @@ function quizCounter() {
             indexQuestion++;
             quizCounter(indexQuestion);
         } else {
-            
+
             // showScore()
 
             clearInterval(seconds);
@@ -126,44 +129,95 @@ function answerResult(userAnswer) {
         score++;
         scoreBlock.textNode = score;
         messageAnswer.textContent = "Your previous answer was correct!";
-       
+
 
     }
     else {
-        
+
         messageAnswer.textContent = "Your previous answer was wrong!";
     }
-    
+
     count = "30";
-    console.log(score)
+    // console.log(score)
 
-    if (indexQuestion < lastQuestion){
-    indexQuestion++;
-    loadQuestion();
+    if (indexQuestion < lastQuestion) {
+        indexQuestion++;
+        loadQuestion();
     }
 
-    else{
-    clearInterval(seconds);
-    totalScore();
-    
+    else {
+        clearInterval(seconds);
+        totalScore();
+
     }
 
+   
 }
 
 
-function totalScore(){
-    scoreText.setAttribute("style","display:block")
-    counter.setAttribute("style","display:none")
+function totalScore() {
+    scoreText.setAttribute("style", "display:block");
+    counter.setAttribute("style", "display:none");
     messageAnswer.setAttribute("style", "display:none");
     qa.setAttribute("style", "display:none");
     scoreBlock.setAttribute("style", "diplay:block");
     scoreBlock.setAttribute("style", "fontSize:40px;");
     scoreBlock.innerHTML = score;
-    recordScore();
+    scoreList.setAttribute("style", "diplay:block");
+
+      // Add new score to todos scoreArray
+    scoresArray.push(score);
+   // Store updated todos in localStorage, re-render the list
+    storeScoresArray();
+    renderScores();
+
+
+}
+
+//To record the scores
+var scoresArray = [];
+console.log(scoresArray);
+init();
+
+
+
+function renderScores() {
+
+    // Clear scoreList element and update count scoresArray
+    // ul.innerHTML = "";
+
+    // Render a new li for each score
+    for (var i = 0; i < scoresArray.length; i++) {
+        var score = scoresArray[i];
+
+        var li = document.createElement("li");
+        li.textContent = score;
+        li.setAttribute("data-index", i);
+
+        ul.appendChild(li);
+
+    }
+
+}
+
+function init() {
+    // Get stored todos from localStorage
+    // Parsing the JSON string to an object
+    var storedScores = JSON.parse(localStorage.getItem("scoresArray"));
+
+    // If scores were retrieved from localStorage, update the scores array to it
+    if (storedScores !== null) {
+        scoresArray = storedScores;
+    }
+
+    // Render scores to the DOM
+    renderScores();
+}
+
+function storeScoresArray() {
+    // Stringify and set "scoresArray" key in localStorage to scores array
+    localStorage.setItem("scoresArray", JSON.stringify(scoresArray));
 }
 
 
-
-
-}
 

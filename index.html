@@ -17,28 +17,6 @@ their initials. Their final score and initials are then stored in `localStorage`
 
 
 
-<!-- My Plan HTML
-
-# Create:
-- Start block
-- Question & answers block
-- Answer is correct or wrong message
-- Counter block
-- Score block
-
-# Create another HTML page for the highest scores
-
-// Plan Java
-- Get the element by id from HTML
-- Create the objects inside an array for the questions, answers, and the correct answer
-
-# JS
-- Create start button and page
-- Create a count function
-- Create a function to show the questions and answers. A function to render the Q&A: Pull the object properties of 
-the array (Quesitons and Answers) in a automatic way.
-- Create a function to check if the answer is correct and add a score to the user + go to the next question. -->
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +26,7 @@ the array (Quesitons and Answers) in a automatic way.
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Quiz in JavaScript</title>
     <link rel="stylesheet" href="style.css">
-    </style>
+
 
 </head>
 
@@ -62,24 +40,24 @@ the array (Quesitons and Answers) in a automatic way.
     </div>
 
     <div>
-    <div class="row">
-        <div class="col-md-12">
-            <div id="qa" style="display:none">
-                <div id="question" class="justifyCenter">Question</div>
-                <br>
-                <ul class="justifyCenter">
-                    <button id="answerA" onclick='answerResult("A")'></button>
+        <div class="row">
+            <div class="col-md-12">
+                <div id="qa" style="display:none">
+                    <div id="question" class="justifyCenter">Question</div>
                     <br>
-                    <button id="answerB" onclick='answerResult("B")'></button>
-                    <br>
-                    <button id="answerC" onclick='answerResult("C")'></button>
-                    <br>
-                    <button id="answerD" onclick='answerResult("D")'></button>
-                </ul>
+                    <ul class="justifyCenter">
+                        <button id="answerA" onclick='answerResult("A")'></button>
+                        <br>
+                        <button id="answerB" onclick='answerResult("B")'></button>
+                        <br>
+                        <button id="answerC" onclick='answerResult("C")'></button>
+                        <br>
+                        <button id="answerD" onclick='answerResult("D")'></button>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
-  </div>
 
     <div class="row">
         <div class="col-md-12">
@@ -95,6 +73,27 @@ the array (Quesitons and Answers) in a automatic way.
         <div class="col-md-12">
             <div id="scoreText" class="scoreStyle" style="display:none">Your Score</div>
             <div id="scoreBlock" class="scoreStyle" style="display:none">0</div>
+        </div>
+    </div>
+
+    <div class="row justifyCenter">
+        <div class="col-md-12">
+            <div id="scoreList" class="highScoreStyle" style="display:none">
+
+                <div class="row">
+                    <div class="col-md-12">
+                        <br>
+                    </div>
+                </div>
+
+                <div class="row">
+                       <div class="col-md-12">
+                        <h3>Your Last Scores</h3>
+                        <ol style="list-style-type: upper-roman" id="ul"></ol>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </div>
 
