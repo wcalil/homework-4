@@ -27,7 +27,7 @@ h2{
  #qa{
     display: flex;
     justify-content: center;
- 
+
 }
 
 h3{
@@ -54,10 +54,12 @@ button{
     justify-content: center;
     }
 
-.justifyCenter{
+/* .justifyCenter{
     display: flex;
-    justify-content: center;
-    }
+    flex-wrap: wrap;
+    justify-content: left;
+    
+    } */
 
     
 .highScoreStyle{
@@ -78,3 +80,5 @@ ol{
     font-size: 25px;
        
 }
+
+
